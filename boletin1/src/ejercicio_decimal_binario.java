@@ -29,7 +29,7 @@ public class ejercicio_decimal_binario {
         }while (n1 != 0);
         // para que el resultado nos salga correctamente tenemos que darle la vuelta a binario, asi que usamos la siguiente linea
         binario = new StringBuilder(binario).reverse().toString();
-        //solo queda mostrar el resultado que sale en binario
+       //solo queda mostrar el resultado que sale en binario
         System.out.println("el numero en binario sale " + binario);
     }
 
