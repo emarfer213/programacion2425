@@ -15,9 +15,9 @@ public class cubovacio {
         int anchura = sc.nextInt();
 
 
-        for (int j = 1; j < altura; j++) {
-            for (int i = 1; i < anchura; i++) {
-                if (i == 1 || i == anchura || j == 1 || j == altura) {
+        for (int j = 1; j <= altura; j++) {
+            for (int i = 1; i <= anchura; i++) {
+                if (i == 1 || i == anchura  || j == 1 || j == altura ) {
 
                 System.out.print("*");
 
