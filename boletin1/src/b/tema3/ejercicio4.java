@@ -20,7 +20,7 @@ public class ejercicio4 {
     private static void rellenaArray(int[] aleatorio){
 
         for (int i = 0; i < aleatorio.length; i++) {
-            Random random = new Random(seed);
+            Random random = new Random();
             int random1 = random.nextInt(101);
             aleatorio[i] = random1;
         }
@@ -49,8 +49,8 @@ public class ejercicio4 {
             if (repeticiones[i] > max);
             max = repeticiones[i];
             indicemax = i;
-        }
 
+        }
         System.out.println(Arrays.toString(repeticiones));
     }
 
