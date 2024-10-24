@@ -43,14 +43,28 @@ public class ejercicio4 {
             repeticiones[terminaciones]++;
 
         }
-        int max = -1;
+        for (int i = 0; i < repeticiones.length; i++) {
+            float suma = 0;
+            float porcentaje = (float) repeticiones[i] / size * 100;
+
+            suma += porcentaje;
+
+            System.out.printf("el porcentaje de numeros que termina en %d es %.2f %% \n" ,i ,porcentaje);
+            if (i == repeticiones.length-1) {
+                float media = suma / 10;
+                System.out.printf("la media de los porcentajes es %.2f %% \n" ,media);
+            }
+        }
+
+        /* int max = -1;
         int indicemax = -1;
         for (int i = 0; i < repeticiones.length; i++) {
             if (repeticiones[i] > max);
             max = repeticiones[i];
             indicemax = i;
 
-        }
+        }*/
+
         System.out.println(Arrays.toString(repeticiones));
     }
 
