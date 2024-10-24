@@ -20,7 +20,7 @@ public class ejercicio4 {
     private static void rellenaArray(int[] aleatorio){
 
         for (int i = 0; i < aleatorio.length; i++) {
-            Random random = new Random(seed);
+            Random random = new Random();
             int random1 = random.nextInt(101);
             aleatorio[i] = random1;
         }
@@ -43,13 +43,18 @@ public class ejercicio4 {
             repeticiones[terminaciones]++;
 
         }
-        int max = -1;
+        for (int i = 0; i < repeticiones.length; i++) {
+            float porcentaje = (float) repeticiones[i] / size * 100;
+            System.out.printf("el porcentaje de numeros que termina en %d es %.2f %% \n" ,i ,porcentaje);
+        }
+        /* int max = -1;
         int indicemax = -1;
         for (int i = 0; i < repeticiones.length; i++) {
             if (repeticiones[i] > max);
             max = repeticiones[i];
             indicemax = i;
-        }
+            
+        }*/
 
         System.out.println(Arrays.toString(repeticiones));
     }
