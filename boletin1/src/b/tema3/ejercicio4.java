@@ -10,8 +10,10 @@ public class ejercicio4 {
     public static void main(String[] args) {
 
         int[] aleatorio = new int[size];
+
         rellenaArray(aleatorio);
-        digitofinal(aleatorio);
+        int [] repeticiones = digitofinal(aleatorio);
+        numeromax(repeticiones);
 
         System.out.println(mediaArray(aleatorio));
 
@@ -35,29 +37,44 @@ public class ejercicio4 {
         return media/ aleatorio.length;
     }
 
-    private static void digitofinal(int[] aleatorio){
-        int [] repeticiones = new int[10];
+    private static int[] digitofinal(int[] aleatorio) {
+        int[] repeticiones = new int[10];
 
         for (int i = 0; i < aleatorio.length; i++) {
             int terminaciones = aleatorio[i] % 10;
             repeticiones[terminaciones]++;
 
         }
+
+
+        float suma = 0;
         for (int i = 0; i < repeticiones.length; i++) {
             float porcentaje = (float) repeticiones[i] / size * 100;
-            System.out.printf("el porcentaje de numeros que termina en %d es %.2f %% \n" ,i ,porcentaje);
+            suma += porcentaje;
+
+            System.out.printf("el porcentaje de numeros que termina en %d es %.2f %% \n", i, porcentaje);
+            if (i == repeticiones.length - 1) {
+                float media = suma / 10;
+                System.out.printf("la suma de todos los porcentajes es %.2f %% la media, de los porcentajes es %.2f %% \n" , suma, media);
+            }
         }
-        /* int max = -1;
-        int indicemax = -1;
-        for (int i = 0; i < repeticiones.length; i++) {
-            if (repeticiones[i] > max);
-            max = repeticiones[i];
-            indicemax = i;
-            
-        }*/
 
-        System.out.println(Arrays.toString(repeticiones));
+                System.out.println(Arrays.toString(repeticiones));
+        return repeticiones;
     }
-
+    private static void numeromax (int[] repeticiones) {
+        int max = -1;
+        for (int i = 0; i < repeticiones.length; i++) {
+            if (repeticiones[i] > max) {
+                max = repeticiones[i];
+            }
+        }
+        System.out.println("las terminaciones que mas se han repetido son: ");
+        for (int i = 0; i < repeticiones.length; i++) {
+            if (repeticiones[i] == max){
+                System.out.printf("%d: %d veces\n",i,max);
+            }
+        }
+    }
 
 }
