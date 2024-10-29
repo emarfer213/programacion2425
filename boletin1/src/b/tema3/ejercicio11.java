@@ -22,7 +22,14 @@ public class ejercicio11 {
                 indicedupli++;
             }
         }
-        return nuevoArray;
+
+        int[] arrayExacto = new int[indicedupli];
+
+        for (int i = 0; i < indicedupli; i++) {
+            arrayExacto[i] = nuevoArray[i];
+        }
+
+        return arrayExacto;
     }
 
     private static boolean buscarnumero(int[] array, int num) {
