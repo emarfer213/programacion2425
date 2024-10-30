@@ -26,7 +26,9 @@ public class ejercicio13 {
     }
 
     private static int[] apilar(int[] pila){
+        for (int i = 0; i < pila.length; i++) {
 
+        }
     }
 
     private static int[] desapilar(int[] pila){
