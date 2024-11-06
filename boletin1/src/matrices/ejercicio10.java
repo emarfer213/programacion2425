@@ -16,7 +16,7 @@ public class ejercicio10 {
     }
 
     private static boolean comprobarSimetriaY(int[][] matriz){
-        for (int j = 0; j < matriz[0].length; j++) {
+        for (int j = 0; j < matriz[0].length / 2; j++) {
             for (int i = 0; i < matriz.length; i++) {
                 if (matriz[i][j] != matriz[i][matriz[i].length-1-j]){
                     return false;
