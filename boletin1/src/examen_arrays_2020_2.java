@@ -21,6 +21,10 @@ public class examen_arrays_2020_2 {
                 {1, 3, 4, 0, 0, 5, 0, 0, 1, 0, 0, 0, 0, 4, 2},
         };
     }
+
+    /*private static boolean hayabeja(int [][] jardin){
+
+    }*/
 }
 
 //hay abeja
