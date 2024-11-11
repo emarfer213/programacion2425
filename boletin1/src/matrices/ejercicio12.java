@@ -16,19 +16,17 @@ public class ejercicio12 {
     }
 
     private static boolean comprobarCuadrado(int[][] matriz){
+        int filas = matriz.length;
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                if (matriz[i].length != matriz[j].length) {
+            if (filas != matriz[i].length) {
                     return false;
-                }
             }
         }
-
         return true;
     }
 
-   private static int[][] crearReflejo(int[][] matriz){
-        int[][] matrizEspejo = new int [4][4];
+    private static int[][] crearReflejo(int[][] matriz){
+        int[][] matrizEspejo = new int [matriz.length][matriz.length];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 matrizEspejo[i][j] = matriz[j][i];
