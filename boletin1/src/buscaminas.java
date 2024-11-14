@@ -1,7 +1,4 @@
-import java.util.Arrays;
 import java.util.Scanner;
-
-import static java.lang.Math.random;
 
 public class buscaminas {
     private static int [][] matrizMinas;
@@ -9,23 +6,46 @@ public class buscaminas {
     private static final int TAM_MATRIZ = 10;
     private static final int MINAS_A_PLANTAR = 10;
     private static final int MINA=-1;
+    public static boolean hasPerdido;
+    public static final String[] letras= {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
 
     public static void main(String[] args) {
         generarMatrices(TAM_MATRIZ);
         plantarMinas(MINAS_A_PLANTAR);
-        tableroJugador();
-
+        do {
+            tableroJugador();
+            pedirCordenadas(matrizLevantadas, matrizMinas);
+        } while (!hasPerdido);
     }
 
-    public static void mostrarTablero(String[][] tableroJugador, int[][] matrizLevantadas){
+    public static void pedirCordenadas(boolean[][] matrizLevantadas, int[][] matrizMinas){
+
         Scanner sc = new Scanner(System.in);
         System.out.println("escribe cordenadas");
         System.out.println("cordenada x");
-        int i = Integer.parseInt(sc.nextLine())-1;
+        int x = Integer.parseInt(sc.nextLine())-1;
         System.out.println("cordenada y");
-        int j = Integer.parseInt(sc.nextLine())-1;
+        int y = Integer.parseInt(sc.nextLine())-1;
 
+        if (matrizMinas[x][y]==-1){
+            System.out.println("perdiste");
+            tableroCompleto();
+            hasPerdido=true;
+        }
 
+        if (matrizMinas[x][y]!=-1){
+            if (!matrizLevantadas[x][y]) {
+                for (int j = x - 1; j <= x + 1; j++) {
+                    for (int k = y - 1; k <= y + 1; k++) {
+                        if (j >= 0 && j < matrizMinas.length && k >= 0 && k < matrizMinas.length) {
+                            if (matrizMinas[j][k] > -1) {
+                                matrizLevantadas[j][k] = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 
     }
@@ -60,10 +80,20 @@ public class buscaminas {
     }
 
     public static void tableroJugador(){
+        System.out.print("    ");
+        for (int l = 1; l <= TAM_MATRIZ; l++) {
+            if (l == 10){
+                System.out.printf("%s ",l);
+            } else {
+                System.out.printf("%s  ",l);
+            }
+        }
+        System.out.println();
         for (int i = 0; i < TAM_MATRIZ; i++) {
+            System.out.printf("%s  ", letras[i]);
             for (int j = 0; j < TAM_MATRIZ; j++) {
-                if (matrizLevantadas[i][j]){
-                    System.out.printf("%2d | ", matrizMinas[i][j]);
+                if (matrizLevantadas[i][j]) {
+                        System.out.printf("%d  ", matrizMinas[i][j]);
 
                 } else {
                     System.out.print(" | ");
@@ -71,11 +101,23 @@ public class buscaminas {
             }
             System.out.println();
         }
+
     }
 
-    /*public static void visualizaTablero(){
+    public static void tableroCompleto(){
+        System.out.print("    ");
+        for (int l = 1; l <= TAM_MATRIZ; l++) {
+            if (l == 10){
+                System.out.printf("%s ",l);
+            } else {
+                System.out.printf("%s  ",l);
+            }
+        }
+        System.out.println();
         for (int i = 0; i < TAM_MATRIZ; i++) {
+            System.out.printf("%s  ", letras[i]);
             for (int j = 0; j < TAM_MATRIZ; j++) {
+
                 if (matrizLevantadas[i][j]){
                     System.out.printf("%2d | ", matrizMinas[i][j]);
 
@@ -85,7 +127,7 @@ public class buscaminas {
             }
             System.out.println();
         }
-    }*/
+    }
 
 
 }
