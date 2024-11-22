@@ -18,10 +18,6 @@ public class Cuenta {
         this.setSaldo(saldoInicial);
     }
 
-    public double getSaldo(double saldo){
-        return saldo;
-    }
-
     public void setSaldo(double saldo) throws CuentaException {
         if (saldo < 0){
             throw new CuentaException("el saldo no puede ser negativo");
@@ -29,6 +25,9 @@ public class Cuenta {
         this.saldo=saldo;
     }
 
+    public double getSaldo(){
+        return saldo;
+    }
 
 
     public void sacarDinero(double retirada){
@@ -46,14 +45,30 @@ public class Cuenta {
     }
 
     public void meterDinero(double ingreso) throws CuentaException {
-        System.out.println("indicame cuanto dinero quieres meter");
-        int cantidadMeter = sc.nextInt();
 
         if (ingreso<=0){
             throw new CuentaException("el ingreso no puede ser cero o menor");
         }
         this.saldo += ingreso;
         contadoringreso++;
+    }
+
+    public void consultarSaldo(){
+        System.out.println(this.saldo);
+        System.out.println("Has sacado dinero " + contadorRetirada + " veces");
+        System.out.println("Has metido dinero " + contadoringreso + " veces");
+    }
+
+    public void finalizar(){
+        System.out.println("has salido de la cuenta, tu saldo es de " +saldo);
+    }
+
+    public int getContadorRetirada(){
+        return contadorRetirada;
+    }
+
+    public int getContadoringreso(){
+        return contadoringreso;
     }
 
 
