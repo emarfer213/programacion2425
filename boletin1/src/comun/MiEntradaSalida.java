@@ -158,4 +158,7 @@ public class MiEntradaSalida {
         return cadena;
     }
 
+    public static int seleccionaOpcion(String seleccionaUnaOpcion, String[] strings) {
+        return 0;
+    }
 }
