@@ -3,9 +3,11 @@ package tema4.ej7;
 import comun.MiEntradaSalida;
 
 public class AppJarra {
+    static Jarra jarra1 = new Jarra(7);
+    static Jarra jarra2 = new Jarra(4);
+
     public static void main(String[] args) {
-        Jarra jarra1 = new Jarra(7);
-        Jarra jarra2 = new Jarra(4);
+
         int opcion=0;
         do {
             opcion = MiEntradaSalida.seleccionaOpcion("selecciona una opcion",
@@ -21,13 +23,20 @@ public class AppJarra {
     }
 
     private static void llenarJarra() {
+
     }
     private static void vaciarJarra() {
+
     }
     private static void volcarJarra1en2() {
+
     }
     private static void volcarJarra2en1() {
+
     }
     private static void verEstadoJarra() {
+        String jarra1Estado = jarra1.toString();
+        String jarra2Estado = jarra2.toString();
+
     }
 }
