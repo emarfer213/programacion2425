@@ -1,5 +1,6 @@
 package tema4.boletin4_3_ej1;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Juego {
@@ -25,12 +26,32 @@ public class Juego {
         return sb.toString();
     }
 
-    public void barajar(){
+    public void barajar() {
         Random random = new Random();
         for (int i = 0; i < baraja.length; i++) {
             int nuevaPosicion = random.nextInt(baraja.length);
-
+            Carta temporal = baraja[i];
+            baraja[i] = baraja[nuevaPosicion];
+            baraja[nuevaPosicion] = temporal;
         }
+    }
+
+    public void repartir(int numJugadores, int numCartas) throws JuegoException {
+        if (numJugadores * numCartas > baraja.length) {
+            throw new JuegoException("no quedan cartas para repartir");
+        }
+
+        for (int i = 0; i < numJugadores; i++) {
+            for (int j = 0; j < numCartas; j++) {
+                System.out.printf("se reparte al jugador %d la carta %s \n", i + 1, baraja[numCartas * i + j]);
+            }
+        }
+
+        this.baraja = Arrays.copyOfRange(this.baraja, numJugadores * numCartas, baraja.length);
+
+    }
+
+    public void cartasRestantes() {
 
     }
 
