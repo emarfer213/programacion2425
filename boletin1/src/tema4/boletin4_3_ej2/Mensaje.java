@@ -10,7 +10,7 @@ public class Mensaje {
     private persona destinatario;
 
 
-    public Mensaje(String asunto, String cuerpo, persona remitente, persona destinatario, LocalDate fechaEnvio) {
+    public Mensaje(String asunto, String cuerpo, persona remitente, persona destinatario) {
         this.asunto=asunto;
         this.cuerpo=cuerpo;
         this.remitente=remitente;
