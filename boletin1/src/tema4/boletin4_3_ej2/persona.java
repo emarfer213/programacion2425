@@ -78,7 +78,7 @@ public class persona {
     }
 
     private static int contarMensajes(Mensaje[] buzon) {
-
+        return tamBuzon;
     }
 
 }
