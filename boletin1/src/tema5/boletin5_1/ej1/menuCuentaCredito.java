@@ -4,10 +4,10 @@ import comun.MiEntradaSalida;
 
 public class menuCuentaCredito {
 
-    static CuentaCredito cuentaCredito1 = new CuentaCredito(0, 100);
+    /*static CuentaCredito cuentaCredito1 = new CuentaCredito(0, 100);*/
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         int opcion=0;
         do {
@@ -19,7 +19,7 @@ public class menuCuentaCredito {
                 case 3:cuentaCredito1.mostrarSaldo();
             }
         } while (opcion != 4);
-    }
+    }*/
 
 
 
