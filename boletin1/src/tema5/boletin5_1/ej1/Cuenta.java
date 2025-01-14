@@ -20,7 +20,7 @@ public class Cuenta {
         this.saldoInicial = saldoInicial;
     }
 
-    private void setSaldo(double saldo) {
+    void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
@@ -28,9 +28,9 @@ public class Cuenta {
         return saldo;
     }
 
-    public double ingresarDinero(double cantidad){
+    public void ingresarDinero(double cantidad){
         assert cantidad > 0 : "valor no valido, debe ser mayor que 0";
-        return saldoInicial += cantidad;
+         saldoInicial += cantidad;
     }
 
 
