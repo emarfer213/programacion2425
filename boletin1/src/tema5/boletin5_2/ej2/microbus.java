@@ -1,12 +1,12 @@
 package tema5.boletin5_2.ej2;
 
-public class microbus extends Vehiculo{
+public class microbus extends Vehiculo {
     private static final double COSTE_PLAZAS = 5;
     private int numPlazas;
 
-    public microbus(String matricula, TGama gama, int numPlazas){
+    public microbus(String matricula, TGama gama, int numPlazas) {
         super(matricula, gama);
-        this.numPlazas=numPlazas;
+        this.numPlazas = numPlazas;
     }
 
     public int getNumPlazas() {
@@ -15,6 +15,6 @@ public class microbus extends Vehiculo{
 
     @Override
     public double calcularPrecioAlquiler(int numDias) {
-        return 0;
+        return (getGama().getPrecioBase() + numPlazas * COSTE_PLAZAS) * numDias;
     }
 }

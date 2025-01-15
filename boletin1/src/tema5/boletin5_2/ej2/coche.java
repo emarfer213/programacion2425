@@ -14,7 +14,11 @@ public class coche extends Vehiculo {
 
     @Override
     public double calcularPrecioAlquiler(int numDias) {
-        return 0;
+        return (getGama().getPrecioBase() + combustible.getPrecioCombustible()) * numDias;
     }
 
+    @Override
+    public double calculaAlquiler(int numDias) {
+        return super.calculaAlquiler(numDias) + combustible.getPrecioCombustible() * numDias;
+    }
 }

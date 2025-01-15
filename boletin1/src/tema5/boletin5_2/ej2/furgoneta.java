@@ -15,6 +15,6 @@ public class furgoneta extends Vehiculo {
 
     @Override
     public double calcularPrecioAlquiler(int numDias) {
-        return 0;
+        return (getGama().getPrecioBase() + pesoMaximoAutorizado * PRECIO_PMA) * numDias;
     }
 }

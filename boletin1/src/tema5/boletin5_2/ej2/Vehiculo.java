@@ -9,6 +9,17 @@ public abstract class Vehiculo {
         this.gama = gama;
     }
 
+    public TGama getGama() {
+        return gama;
+    }
+
     public abstract double calcularPrecioAlquiler(int numDias);
 
+    public double calculaAlquiler(int numDias) {
+        return gama.getPrecioBase() * numDias;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
 }
