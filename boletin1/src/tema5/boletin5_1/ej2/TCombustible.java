@@ -1,4 +1,4 @@
-package tema5.boletin5_2.ej2;
+package tema5.boletin5_1.ej2;
 
 public enum TCombustible {
     GASOLINA(3.5), DIESEL(2);

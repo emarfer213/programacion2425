@@ -1,4 +1,4 @@
-package tema5.boletin5_2.ej2;
+package tema5.boletin5_1.ej2;
 
 public class furgoneta extends Vehiculo {
     public static final double PRECIO_PMA = 0.5;

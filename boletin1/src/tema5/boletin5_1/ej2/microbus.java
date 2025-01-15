@@ -1,4 +1,4 @@
-package tema5.boletin5_2.ej2;
+package tema5.boletin5_1.ej2;
 
 public class microbus extends Vehiculo {
     private static final double COSTE_PLAZAS = 5;
