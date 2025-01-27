@@ -21,7 +21,7 @@ public class Usuario {
             if (mensajes[i] == null) {
                 Mensaje mensaje = new Mensaje(textoMensaje, publico);
                 mensajes[i] = mensaje;
-                break;
+                return;
             }
         }
         throw new MensajeException("ya has llegado a tu limite de mensajes");
