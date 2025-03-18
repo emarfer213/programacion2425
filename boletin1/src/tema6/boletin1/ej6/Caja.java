@@ -41,6 +41,9 @@ public class Caja {
 
     public void cerrarCaja() {
         if (abierto) {
+            if (!cola.isEmpty()) {
+                throw new CajaException("no puedo cerrarla porque hay un cliente");
+            }
             abierto = false;
         } else {
             throw new CajaException("la caja ya ha sido cerrada");
