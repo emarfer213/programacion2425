@@ -16,7 +16,7 @@ public class Agencia {
                         .anyMatch(ruta -> ruta.contieneParadas(nombreParada))).toList();
     }
 
-    public List<String> listadoParadasDeCliente(Cliente cliente){
+    /*public List<String> listadoParadasDeCliente(Cliente cliente){
 
-    }
+    }*/
 }
