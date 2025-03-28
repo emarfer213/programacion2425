@@ -26,5 +26,12 @@ public class RedMeteorologica {
 
         sensores1.historicoMediciones().entrySet().stream()
                 .forEach(s -> System.out.println(s.getKey().format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm")) + " | " + s.getValue()));
+
+        try {
+            System.out.printf("%,2f", estacionMeteorologica.getMediaMediciones(sensores1, 4));
+        } catch (EstacionException e){
+            System.out.println(e.getMessage());
+        }
+
     }
 }

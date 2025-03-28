@@ -37,5 +37,9 @@ public class EstacionMeteorologica {
         conjuntoSensores.remove(sensores);
     }
 
+    public double getMediaMediciones(Sensores sensores, int n){
+        return sensores.getMediaUltimasMediciones(n);
+    }
+
 
 }

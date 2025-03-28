@@ -47,4 +47,12 @@ public class Sensores {
 
         */
     }
+
+    public double getMediaUltimasMediciones(int n){
+        return registroDeMediciones.keySet().stream()
+                .sorted((l1, l2) -> l2.compareTo(l1))
+                .limit(n).mapToDouble(registroDeMediciones::get)
+                .average()
+                .orElseThrow(() -> new EstacionException("el registro de mediciones esta vacio"));
+    }
 }
