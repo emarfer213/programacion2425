@@ -32,6 +32,5 @@ public class RedMeteorologica {
         } catch (EstacionException e){
             System.out.println(e.getMessage());
         }
-
     }
 }
