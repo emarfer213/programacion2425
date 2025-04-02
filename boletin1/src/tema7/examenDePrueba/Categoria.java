@@ -11,4 +11,12 @@ public class Categoria {
         this.nombre = nombre;
         this.frases = new HashSet<>();
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setFrases(Set<Frases> frases) {
+        this.frases = frases;
+    }
 }
