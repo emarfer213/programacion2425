@@ -21,12 +21,28 @@ public class prueba1 {
 
             byte[] pixel = new byte[3];
 
+            /**
+             * este while se encarga de invertir los colores de la imagen
+             */
             while (data.read(pixel) != -1){
                 for (int i = 0; i < pixel.length; i++) {
                     pixel[i] = (byte) ~pixel[i];
                 }
                 out.write(pixel);
             }
+
+            /**
+             * este while se encarga de cambiar los colores de la imagen,
+             * en este caso colorea la imagen de rojo
+             */
+            /*while (data.read(pixel) != -1){
+                for (int i = 0; i < pixel.length; i++) {
+                    if (i != 2){
+                        pixel[i] = 0;
+                    }
+                }
+                out.write(pixel);
+            }*/
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
