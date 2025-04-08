@@ -7,12 +7,15 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
+import java.util.Comparator;
+import java.util.stream.Stream;
 
 public class ej5 {
     public static void main(String[] args) {
         try {
             //crearDirectorioNio("experimento2|");
-            crearFicheroTexto("experimento3", "es un experimento y es el tercero");
+            //borrarFicheroDeTexto("experimento3");
+            mostrarFicherosCarpetas("boletin1");
         } catch (Ej5Exception e) {
             System.out.println(e.getMessage());
         }
@@ -48,7 +51,7 @@ public class ej5 {
             Files.writeString(ficheroNio, contenido);
             return ficheroNio;
         } catch (FileAlreadyExistsException i) {
-            throw new Ej5Exception("no se puede duplicar: "+i.getMessage());
+            throw new Ej5Exception("no se puede duplicar: " + i.getMessage());
         } catch (IOException e) {
             throw new Ej5Exception(e.getMessage());
         } catch (InvalidPathException e) {
@@ -56,10 +59,10 @@ public class ej5 {
         }
     }
 
-    public static void borrarFicheroDeTexto(String nombre, String contenido) throws Ej5Exception {
+    public static void borrarFicheroDeTexto(String nombre) throws Ej5Exception {
         try {
-            Path ficheroNio =  Path.of("src/tema7/boletin1/", nombre);
-            if (!Files.deleteIfExists(ficheroNio)){
+            Path ficheroNio = Path.of("src/tema7/boletin1/", nombre);
+            if (!Files.deleteIfExists(ficheroNio)) {
                 throw new Ej5Exception("el fichero no existe");
             }
 
@@ -68,6 +71,16 @@ public class ej5 {
         } catch (InvalidPathException e) {
             throw new Ej5Exception(e.getMessage());
         }
+    }
 
+    public static void mostrarFicherosCarpetas(String nombre) throws Ej5Exception {
+        Path carpetaNio = Path.of("src/tema7/boletin1/"+nombre);
+        try (Stream<Path> flujo = Files.list(carpetaNio)) {
+            flujo.filter(Files::isRegularFile)
+                    .sorted(Comparator.comparing(Path::getFileName))
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            throw new Ej5Exception(e.getMessage());
+        }
     }
 }
