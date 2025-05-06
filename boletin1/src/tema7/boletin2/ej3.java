@@ -3,9 +3,11 @@ package tema7.boletin2;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class ej3 {
     public static void main(String[] args) {
+        Path fichEj6 = Path.of("./src/tema7/boletin2/fichero");
         String linea;
         boolean validez = true;
         try (BufferedReader miLector = new BufferedReader(new FileReader("./src/tema7/boletin2/fichero"))) {
