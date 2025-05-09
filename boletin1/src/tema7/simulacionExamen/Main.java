@@ -49,8 +49,8 @@ public class Main {
         NodeList juego = document.getElementsByTagName("videojuego");
 
         for (int i = 0; i < juego.getLength(); i++) {
-
+            Element temp = (Element) juego.item(i);
+            NodeList listaTitulo = temp.getElementsByTagName("titulo");
         }
-
     }
 }
