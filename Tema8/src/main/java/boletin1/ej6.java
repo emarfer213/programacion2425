@@ -14,11 +14,14 @@ public class ej6 {
             System.out.println("introduce el nombre");
             String nombre = br.readLine();
 
-            PreparedStatement consulta = c.prepareStatement("Select customerName, sum(quantityOrdered * priceEach) as total" +
-                    "from orderdetails\n" +
-                    "inner join orders on orders.orderNumber = orderdetails.orderNumber\n" +
-                    "inner join customers on order.customerNumber = customers.customerNumber" +
-                    "inner join employees on customers.salesReEmployeeNumber = employees.employeeNumber group by customerName");
+            PreparedStatement consulta = c.prepareStatement("Select employees.firstName, customers.customerName, sum(orderdetails.quantityOrdered * orderdetails.priceEach) as Total " +
+                    "from employees " +
+                    "inner join customers on employeeNumber = customers.salesRepEmployeeNumber " +
+                    "INNER JOIN orders ON customers.customerNumber = orders.customerNumber " +
+                    "inner join orderdetails ON orders.orderNumber = orderdetails.orderNumber " +
+                    "where employees.firstName LIKE ? group by customers.customerName; ");
+
+            consulta.setString(1, nombre + "%");
 
             ResultSet resultado = consulta.executeQuery();
 
